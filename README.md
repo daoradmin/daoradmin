@@ -4,7 +4,7 @@ Hi 👋 My name is Daniel Orelius
 Automation is key.. 
 ---------------------
 
-* ⚡  Powershell GOD.
+* ⚡  Powershell Enthusiast.
 * 🏢  Automize A/S
 * 🌍  I'm based in Denmark.
 
