@@ -5,7 +5,7 @@ Automation is key..
 ---------------------
 
 * ⚡  Powershell Enthusiast.
-* 🏢  Automize A/S
+* 🏢  Mjølner Informatics A/S
 * 🌍  I'm based in Denmark.
 
 ---------------------
