@@ -1,10 +1,10 @@
 Hi 👋 My name is Daniel Orelius
 ======================================================================================================================================
 
-Automation is key.. 
+Smooth running automation is a relaxing experience.. 
 ---------------------
 
-* ⚡  Powershell Enthusiast.
+* ⚡  Automation Enthusiast.
 * 🏢  Mjølner Informatics A/S
 * 🌍  I'm based in Denmark.
 
