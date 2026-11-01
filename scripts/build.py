@@ -223,33 +223,18 @@ def hero() -> str:
     svg.label(W - PAD - 4, 46, '', anchor='end',
               runs=[(TITLE, 600, INK), (f' · {COMPANY} · {LOCATION}', 500, INK)])
 
-    # Left column: headline and intro. Right column: the desk windows.
-    col = 468
+    # Headline across the full width, then intro on the left and the status window on the right.
+    # No portrait: GitHub already shows the avatar right next to the README.
     widest = max(measure(line, 'sans', 1, 500, -0.04) for line in HEADLINE)
-    size = min(76, col / widest)
+    size = min(100, (W - 2 * PAD - 4) / widest)
     last = display(svg, PAD, 84, HEADLINE, size, highlight_line=HIGHLIGHT_LINE)
 
-    y = last + 52
+    y = last + 60
     svg.label(PAD, y, f'Hi, I’m {NAME}.', fill=INK_SOFT, size=12)
-    y = paragraph(svg, PAD, y + 32, INTRO, 400, 16.5, INK_SOFT, 1.5)
+    y = paragraph(svg, PAD, y + 32, INTRO, 420, 16.5, INK_SOFT, 1.5)
 
-    # portrait.png — Viewer
-    px, pw = W - PAD - 4 - 262, 262
-    top = window(svg, px, 84, pw, 316, 'portrait.png —', 'Viewer 1.0')
-    svg.defs.append(
-        '<filter id="mono"><feColorMatrix type="saturate" values="0"/>'
-        '<feComponentTransfer><feFuncR type="linear" slope="1.08" intercept="-0.04"/>'
-        '<feFuncG type="linear" slope="1.08" intercept="-0.04"/>'
-        '<feFuncB type="linear" slope="1.08" intercept="-0.04"/></feComponentTransfer></filter>'
-    )
-    photo = base64.b64encode((ROOT / 'portrait.jpg').read_bytes()).decode()
-    svg.add(f'<image x="{px + 12.5}" y="{top + 12}" width="238" height="238" filter="url(#mono)" '
-            f'href="data:image/jpeg;base64,{photo}"/>')
-    svg.add(f'<rect x="{px + 12.5}" y="{top + 12}" width="238" height="238" fill="none" stroke="{INK}"/>')
-    svg.label(px + pw - 12, top + 270, LOCATION.lower(), anchor='end')
-
-    # status window, overlapping the viewer like the clock tool on the site
-    sx, sy, sw = px - 96, 84 + 316 - 36, 252
+    sw = 276
+    sx, sy = W - PAD - 4 - sw, last + 44
     top = window(svg, sx, sy, sw, 118, 'Status', '1.1')
     svg.label(sx + 14, top + 22, 'europe/copenhagen')
     word = 'building entria'
